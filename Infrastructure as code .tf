@@ -78,6 +78,7 @@ resource "aws_nat_gateway" "tnat" {
   tags = {
     Name = "MY-VPC-NAT"
   }
+}
 
 resource "aws_route_table" "prirt" {
   vpc_id = aws_vpc.myvpc.id
@@ -135,6 +136,22 @@ resource "aws_security_group" "allow_all" {
   }
 
   tags = {
-    Name = "allow_tls"
-  }
+    Name = "MY-VPC-SG"
+  } 
+}
+resource "aws_instance" "PublicInstance" {
+  ami                         = "ami-02a2af70a66af6dfb"
+  instance_type               = "t2.micro"
+  subnet_id                   = aws_subnet.pubsub.id
+  vpc_security_group_ids      = [aws_security_group.allow_all.id]
+  key_name                    = "zenclass"
+  associate_public_ip_adress  = true
+}
+
+resource "aws_instance" "privateinstance" {
+  ami                         = "ami-02a2af70a66af6dfb"
+  instance_type               = "t2.micro"
+  subnet_id                   = aws_subnet.prisub.id
+  vpc_security_group_ids      = [aws_security_group.allow_all.id]
+  key_name                    = "zenclass"
 }
