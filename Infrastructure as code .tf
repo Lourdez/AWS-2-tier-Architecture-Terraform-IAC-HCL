@@ -94,7 +94,7 @@ resource "aws_route_table" "prirt" {
 }
 
 resource "aws_route_table_association" "prirtasso" {
-  subnet_id      = aws_subnet.prirt.id
+  subnet_id      = aws_subnet.prisub.id
   route_table_id = aws_route_table.prirt.id
 }
 
@@ -141,15 +141,17 @@ resource "aws_security_group" "allow_all" {
 }
 resource "aws_instance" "PublicInstance" {
   ami                         = "ami-02a2af70a66af6dfb"
+  name                        ="public subnet instance"
   instance_type               = "t2.micro"
   subnet_id                   = aws_subnet.pubsub.id
   vpc_security_group_ids      = [aws_security_group.allow_all.id]
   key_name                    = "zenclass"
-  associate_public_ip_adress  = true
+  associate_public_ip_address  = true
 }
 
 resource "aws_instance" "privateinstance" {
   ami                         = "ami-02a2af70a66af6dfb"
+  name                        ="private subnet instance"
   instance_type               = "t2.micro"
   subnet_id                   = aws_subnet.prisub.id
   vpc_security_group_ids      = [aws_security_group.allow_all.id]
