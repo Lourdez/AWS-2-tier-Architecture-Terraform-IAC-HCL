@@ -26,7 +26,7 @@ Private subnet will have middleware / Server application
 + install git [ubuntu = apt install git && amazon-linux = yum install git]
 + $ git clone 
 + $ chmod +x /src
-+ $ ./ /src/install_terraform.sh (or) navigate to this url and copy the instalation command paste it in the terminal , click enter
++ $ ./ /src/install_terraform.sh (or) [click here](https://developer.hashicorp.com/terraform/install) and copy the instalation command paste it in the terminal , click enter
 + $ ./ /src/run-terraform.sh
 
 to Delete the infrasturucture 
