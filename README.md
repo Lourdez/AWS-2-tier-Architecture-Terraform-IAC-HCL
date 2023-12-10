@@ -24,7 +24,7 @@ Private subnet will have middleware / Server application
 + Launch an EC2 instance and connect to it
 + update the machine [ubuntu - apt-get update && amazon-linux- yum update]
 + install git [ubuntu = apt install git && amazon-linux = yum install git]
-+ $ git clone 
++ $ git clone https://github.com/Lourdez/Terraform-IAC-HCL.git
 + $ chmod +x /src
 + $ ./ /src/install_terraform.sh (or) [click here](https://developer.hashicorp.com/terraform/install) and copy the instalation command paste it in the terminal , click enter
 + $ ./ /src/run-terraform.sh
